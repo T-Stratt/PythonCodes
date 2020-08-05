@@ -108,29 +108,28 @@ def Quiz_AWSCP():
                  Question(question_prompts[2], "b"), Question(question_prompts[3], "b")]
 
 def quiz_list():                               #defines the list of quizzes available in the program.
+
     global quizlist
     quizlist = ["CompTIA Net+", "CompTIA Linux+", "Python", "AWS Cloud Practitioner"]
 
 def quiz_choice():                             #defines the list that you can choose from.
-    selection = str(input(f"Time to take a randomly assigned Quiz: "))
+
     random_num= random.randint(1,4)  
-    if random_num == "1":  
+    if random_num == 1:  
         Quiz_Net()  
         run_quiz_Net(questions)  
-    elif random_num == "2":  
+    elif random_num == 2:  
         Quiz_Linux()  
         run_quiz_Linux(questions)  
-    elif random_num == "3":  
+    elif random_num == 3:  
         Quiz_Python()  
         run_quiz_Python(questions)  
-    elif random_num == "4":  
+    elif random_num == 4:  
         Quiz_AWSCP()  
         run_quiz_AWSCP(questions)
-    else:
-        print("That is not a valid selection, please try again.") 
-        quiz_choice()                          #Allows for to loop until a valid selection is made.
 
 def your_name():
+
     print("Before we begin,")
 
     global name
@@ -139,6 +138,7 @@ def your_name():
     you_sure()
 
 def you_sure():
+
     sure = str(input(f"{name} is it? (y or n): "))
     if sure.lower() == "y":       
         quiz_list()
@@ -147,6 +147,7 @@ def you_sure():
         your_name()
 
 def score_Net():
+
     score = correct
     if(score == 25 or score== 0):
         print(f"Oh No! {score}%! You did not do so well {name}, Would you like to try again?")
@@ -178,6 +179,7 @@ def score_Net():
             print(f"Have a great day {name}! Please play again soon.")
 
 def score_Linux():
+
     score = correct
     if(score == 25 or score== 0):
         print(f"Oh No! {score}% You did not do so well {name}, Would you like to try again?")
@@ -209,6 +211,7 @@ def score_Linux():
             print(f"Have a great day {name}! Please play again soon.")
 
 def score_Python():
+
     score = correct
     if(score == 25 or score== 0):
         print(f"Oh No! {score}% You did not do so well {name}, Would you like to try again?")
@@ -239,8 +242,8 @@ def score_Python():
         else:
             print(f"Have a great dat {name}! Please play again soon.")
 
-
 def score_AWS():
+
     score = correct
     if(score == 25 or score== 0):
         print(f"Oh No! {score}% You did not do so well {name}, Would you like to try again?")
@@ -272,6 +275,7 @@ def score_AWS():
             print(f"Have a great dat {name}! Please play again soon.")
 
 def quitter_Net():
+
     print(f"{name}, I can't believe you are quitting!")
     print(f"Goodbye and hope you enjoyed your learning experience {name}!\nUnless, You would like to try your hand at another quiz!")
     other = str(input("y or n: "))
@@ -281,6 +285,7 @@ def quitter_Net():
         print(f"Have a great day {name}! Please play again soon.")
 
 def quitter_Linux():
+
     print(f"{name}, I can't believe you are quitting!")
     print(f"Goodbye and hope you enjoyed your learning experience {name}!\nUnless, You would like to try your hand at another quiz!")
     other = str(input("y or n: "))
@@ -290,6 +295,7 @@ def quitter_Linux():
         print(f"Have a great day {name}! Please play again sometime.")
 
 def quitter_Python():
+
     print(f"{name}, I can't believe you are quitting!")
     print(f"Goodbye and hope you enjoyed your learning experience {name}!\nUnless, you would like to try your hand at another quiz!")
     other = str(input("y or n: "))
@@ -299,6 +305,7 @@ def quitter_Python():
         print(f"Have a great day {name}! Please play again sometime.")
 
 def quitter_AWSCP():
+
     print(f"{name}, I can't believe you are quitting!")
     print(f"Goodbye and hope you enjoyed your learning experience {name}!\nUnless, you would like to try your hand at another quiz!")
     other = str(input("y or n: "))
