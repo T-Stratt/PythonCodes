@@ -2,6 +2,8 @@
 """Author: Thomas Stratton || This program is to implement a randomization of quizzes."""
 """Credit: James Peterson  || https://github.com/dragoonbeaga """
 
+import random 
+
 class Question:                         #this is a Class. allows me to point to questions inside of list
     def __init__(self, prompt, answer): #this initiates the class.  (sets what the Class can be called,
         self.prompt = prompt            #defines this variable       #prompt refers to first ?variable? in a list(0),
@@ -110,19 +112,20 @@ def quiz_list():                               #defines the list of quizzes avai
     quizlist = ["CompTIA Net+", "CompTIA Linux+", "Python", "AWS Cloud Practitioner"]
 
 def quiz_choice():                             #defines the list that you can choose from.
-    selection = str(input(f"1. {quizlist[0]}\n2. {quizlist[1]}\n3. {quizlist[2]}\n4. {quizlist[3]}\n Please enter the number of the quiz: "))
-    if selection == "1":                       #if/elif/else statements
-        Quiz_Net()
-        run_quiz_Net(questions)
-    elif selection == "2":
-        Quiz_Linux()
-        run_quiz_Linux(questions)
-    elif selection == "3":
-        Quiz_Python()
-        run_quiz_Python(questions)
-    elif selection == "4":
-        Quiz_AWSCP()
-        run_quiz_AWSCP(questions) 
+    selection = str(input(f"Time to take a randomly assigned Quiz: "))
+    random_num= random.randint(1,4)  
+    if random_num == "1":  
+        Quiz_Net()  
+        run_quiz_Net(questions)  
+    elif random_num == "2":  
+        Quiz_Linux()  
+        run_quiz_Linux(questions)  
+    elif random_num == "3":  
+        Quiz_Python()  
+        run_quiz_Python(questions)  
+    elif random_num == "4":  
+        Quiz_AWSCP()  
+        run_quiz_AWSCP(questions)
     else:
         print("That is not a valid selection, please try again.") 
         quiz_choice()                          #Allows for to loop until a valid selection is made.
@@ -138,7 +141,6 @@ def your_name():
 def you_sure():
     sure = str(input(f"{name} is it? (y or n): "))
     if sure.lower() == "y":       
-        print(f"Okay then {name}, Please pick one of the following quizzes: ")
         quiz_list()
         quiz_choice()
     else:
