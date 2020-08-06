@@ -4,6 +4,14 @@
 
 import random 
 
+class Player:  
+    def __init__(self):  
+        self.score= 0  
+    def win(self):  
+        self.score += 1  
+    def get_score(self):  
+        return self.score
+
 class Question:                         #this is a Class. allows me to point to questions inside of list
     def __init__(self, prompt, answer): #this initiates the class.  (sets what the Class can be called,
         self.prompt = prompt            #defines this variable       #prompt refers to first ?variable? in a list(0),
@@ -16,7 +24,7 @@ def run_quiz_Net(questions):                #runs the quiz that is turned on.
         answer = input(f"{question.prompt}\n:")
         if answer == question.answer:
             correct += 25
-    score_Net()
+    score_Net() 
 
 def run_quiz_Linux(questions):                #runs the quiz that is turned on.
     global correct
@@ -25,7 +33,7 @@ def run_quiz_Linux(questions):                #runs the quiz that is turned on.
         answer = input(f"{question.prompt}\n:")
         if answer == question.answer:
             correct += 25
-    score_Linux()
+    score_Linux()    
 
 def run_quiz_Python(questions):                #runs the quiz that is turned on.
     global correct
@@ -44,7 +52,6 @@ def run_quiz_AWSCP(questions):                    #runs the quiz that is turned 
         if answer == question.answer:
             correct += 25
     score_AWS() 
-
 
 def Quiz_Net():                                   #defines the quiz that is created and places questions in a list.
     question_prompts = [
@@ -112,7 +119,7 @@ def quiz_list():                               #defines the list of quizzes avai
     global quizlist
     quizlist = ["CompTIA Net+", "CompTIA Linux+", "Python", "AWS Cloud Practitioner"]
 
-def quiz_choice():                             #defines the list that you can choose from.
+def quiz_choice():                             #defines the randomization of the quiz_list.
 
     random_num= random.randint(1,4)  
     if random_num == 1:  
@@ -128,7 +135,7 @@ def quiz_choice():                             #defines the list that you can ch
         Quiz_AWSCP()  
         run_quiz_AWSCP(questions)
 
-def your_name():
+def your_name():                               #defines the input of the user and asks for confirmation of the input.
 
     print("Before we begin,")
 
@@ -146,7 +153,7 @@ def you_sure():
     else:
         your_name()
 
-def score_Net():
+def score_Net():                                #defines the scoring metrics for each question scored overall.
 
     score = correct
     if(score == 25 or score== 0):
@@ -155,21 +162,21 @@ def score_Net():
         if repeat.lower() == "y":  
             run_quiz_Net(questions)
         else:
-            quitter_Net()
+            quitter()
     elif score == 50:
         print(f"{score}%! Your getting better {name}, Would you like to try again?")
         repeat = str(input("y or n: "))
         if repeat.lower() == "y":
             run_quiz_Net(questions)
         else:
-            quitter_Net()
+            quitter()
     elif score == 75:
         print(f"{score}% You passed {name}! But you can do better! Try again?")
         repeat = str(input("y or n: "))
         if repeat.lower() == "y":
             run_quiz_Net(questions)
         else:
-            quitter_Net()
+            quitter()
     else:
         print(f"{score}%! You aced it, You really know your stuff!! Would you like to try another Quiz?")
         other = str(input("y or n: "))
@@ -187,21 +194,21 @@ def score_Linux():
         if repeat.lower() == "y":
             run_quiz_Linux(questions)
         else:
-            quitter_Linux()
+            quitter()
     elif score == 50:
         print(f"{score}%! Your getting better {name}, Would you like to try again?")
         repeat = str(input("y or n: "))
         if repeat.lower() == "y":
             run_quiz_Linux(questions)
         else:
-            quitter_Linux()
+            quitter()
     elif score == 75:
         print(f"{score}% You passed {name}! But you can do better! Try again?")
         repeat = str(input("y or n: "))
         if repeat.lower() == "y":
             run_quiz_Linux(questions)
         else:
-            quitter_Linux()
+            quitter()
     else:
         print(f"{score}%! You aced it, You really know your stuff! Would you like to try another quiz?")
         other = str(input("y or n: "))
@@ -219,28 +226,28 @@ def score_Python():
         if repeat.lower() == "y":
             run_quiz_Python(questions)
         else:
-            quitter_Python()
+            quitter()
     elif score == 50:
         print(f"{score}%! Your getting better {name}, Would you like to try again?")
         repeat = str(input("y or n: "))
         if repeat.lower() == "y":
             run_quiz_Python(questions)
         else:
-            quitter_Python()
+            quitter()
     elif score == 75:
         print(f"{score}% You passed {name}! But you can do better! Try again?")
         repeat = str(input("y or n: "))
         if repeat.lower() == "y":
             run_quiz_Python(questions)
         else:
-            quitter_Python()
+            quitter()
     else:
         print(f"{score}%! You aced it, You really know your stuff! Would you like to try another quiz?")
         other = str(input("y or n: "))
         if other.lower() == "y":
             quiz_choice()
         else:
-            print(f"Have a great dat {name}! Please play again soon.")
+            print(f"Have a great day {name}! Please play again soon.")
 
 def score_AWS():
 
@@ -251,30 +258,30 @@ def score_AWS():
         if repeat.lower() == "y":
             run_quiz_AWSCP(questions)
         else:
-            quitter_AWSCP()
+            quitter()
     elif score == 50:
         print(f"{score}%! Your getting better {name}, Would you like to try again?")
         repeat = str(input("y or n: "))
         if repeat.lower() == "y":
             run_quiz_AWSCP(questions)
         else:
-            quitter_AWSCP()
+            quitter()
     elif score == 75:
         print(f"{score}% You passed {name}! But you can do better! Try again?")
         repeat = str(input("y or n: "))
         if repeat.lower() == "y":
             run_quiz_AWSCP(questions)
         else:
-            quitter_AWSCP()
+            quitter()
     else:
         print(f"{score}%! You aced it, You really know your stuff! Would you like to try another quiz?")
         other = str(input("y or n: "))
         if other.lower() == "y":
             quiz_choice()
         else:
-            print(f"Have a great dat {name}! Please play again soon.")
+            print(f"Have a great day {name}! Please play again soon.")
 
-def quitter_Net():
+def quitter():                                    #defines the parameters on how to exit or continue to another quiz.
 
     print(f"{name}, I can't believe you are quitting!")
     print(f"Goodbye and hope you enjoyed your learning experience {name}!\nUnless, You would like to try your hand at another quiz!")
@@ -283,36 +290,6 @@ def quitter_Net():
         quiz_choice()
     else:
         print(f"Have a great day {name}! Please play again soon.")
-
-def quitter_Linux():
-
-    print(f"{name}, I can't believe you are quitting!")
-    print(f"Goodbye and hope you enjoyed your learning experience {name}!\nUnless, You would like to try your hand at another quiz!")
-    other = str(input("y or n: "))
-    if other.lower() == "y":
-        quiz_choice()
-    else:
-        print(f"Have a great day {name}! Please play again sometime.")
-
-def quitter_Python():
-
-    print(f"{name}, I can't believe you are quitting!")
-    print(f"Goodbye and hope you enjoyed your learning experience {name}!\nUnless, you would like to try your hand at another quiz!")
-    other = str(input("y or n: "))
-    if other.lower() == "y":
-        quiz_choice()
-    else:
-        print(f"Have a great day {name}! Please play again sometime.")
-
-def quitter_AWSCP():
-
-    print(f"{name}, I can't believe you are quitting!")
-    print(f"Goodbye and hope you enjoyed your learning experience {name}!\nUnless, you would like to try your hand at another quiz!")
-    other = str(input("y or n: "))
-    if other.lower() == "y":
-        quiz_choice()
-    else:
-        print(f"Have a great day {name}! Please play again sometime.")
         
 intro = "Welcome to the Technology P.L.A.N !"
 print(intro.upper())
