@@ -25,19 +25,19 @@ def run_quiz_Net(questions):                               #runs the quiz that i
     global correct
    # correct = 0
     for question in questions:
-        print(f"\nPlayer 1, You are up!")
+        print(f"\n{player1.name_return()}, You are up!")
         answer = input(f"{question.prompt}\n:")
         if answer == question.answer:
             player1.win()
         else:
             try:
                player2
-               print(f"\nWRONG! Player 2, HERE'S YOUR CHANCE!")
+               print(f"\nWRONG! {player2.name_return()}, HERE'S YOUR CHANCE!")
                answer = input(f"{question.prompt}\n:")
                if answer == question.answer:
                   player2.win()
                else:
-                   print("NEITHER PLAYERS WIN!")
+                   print(f"NEITHER {player1.name_return()} and {player2.name_return()} WIN!")
             except:
                   pass
 
@@ -47,19 +47,19 @@ def run_quiz_Linux(questions):                #runs the quiz that is turned on.
     global correct
     correct = 0
     for question in questions:
-        print(f"\nPlayer 1, You are up!")
+        print(f"\n{player1.name_return()}, You are up!")
         answer = input(f"{question.prompt}\n:")
         if answer == question.answer:
             player1.win()
         else:
             try:
                player2
-               print(f"\nWRONG! Player 2, HERE'S YOUR CHANCE!")
+               print(f"\nWRONG! {player2.name_return()}, HERE'S YOUR CHANCE!")
                answer = input(f"{question.prompt}\n:")
                if answer == question.answer:
                   player2.win()
                else:
-                   print("NEITHER PLAYERS WIN!")
+                   print(f"NEITHER {player1.name_return()} and {player2.name_return()} WIN!")
             except:
                   pass
 
@@ -69,19 +69,19 @@ def run_quiz_Python(questions):                #runs the quiz that is turned on.
     global correct
     correct = 0
     for question in questions:
-        print(f"\nPlayer 1, You are up!")
+        print(f"\n{player1.name_return()}, You are up!")
         answer = input(f"{question.prompt}\n:")
         if answer == question.answer:
             player1.win()                     
         else:                                 #if player1 fails, and player2 is present they get a chance to answer. 
             try:
                player2
-               print(f"\nWRONG! Player 2, HERE'S YOUR CHANCE!")
+               print(f"\nWRONG! {player2.name_return()}, HERE'S YOUR CHANCE!")
                answer = input(f"{question.prompt}\n:")
                if answer == question.answer:
                   player2.win()
                else:
-                   print("NEITHER PLAYERS WIN!")
+                   print(f"NEITHER {player1.name_return()} and {player2.name_return()} WIN!")
             except:
                   pass
  
@@ -91,19 +91,19 @@ def run_quiz_AWSCP(questions):                    #runs the quiz that is turned 
     global correct
     correct = 0
     for question in questions:
-        print(f"\nPlayer 1, You are up!")
+        print(f"\n{player1.name_return()}, You are up!")
         answer = input(f"{question.prompt}\n:")
         if answer == question.answer:
             player1.win()                     
         else:                                 #if player1 fails, and player2 is present they get a chance to answer. 
             try:
                player2
-               print(f"\nWRONG! Player 2, HERE'S YOUR CHANCE!")
+               print(f"\nWRONG! {player2.name_return()}, HERE'S YOUR CHANCE!")
                answer = input(f"{question.prompt}\n:")
                if answer == question.answer:
                   player2.win()
                else:
-                   print("NEITHER PLAYERS WIN!")
+                   print(f"NEITHER {player1.name_return()} and {player2.name_return()}  WIN!")
             except:
                   pass
 
@@ -228,6 +228,8 @@ def you_sure():
 
     except:
         sure = str(input(f"One player? (y or n): "))
+        print("Player 1")
+        player1.name_input()
 
     if sure.lower() == "y":
         quiz_list()
@@ -237,185 +239,185 @@ def you_sure():
 
 def score_Net():                                #defines the scoring metrics for each question scored overall.
 
-    if not player2:
-        score = correct
-        if(score == 25 or score== 0):
-            print(f"Oh No! {score}%! You did not do so well {player1.name_return()}, Would you like to try again?")
-            repeat = str(input("y or n: "))
-            if repeat.lower() == "y":
-                run_quiz_Net(questions)
-            else:
-                quitter()
-        elif score == 50:
-            print(f"{score}%! Your getting better {player1.name_return()}, Would you like to try again?")
-            repeat = str(input("y or n: "))
-            if repeat.lower() == "y":
-                run_quiz_Net(questions)
-            else:
-                quitter()
-        elif score == 75:
-            print(f"{score}% You passed {player1.name_return()}! But you can do better! Try again?")
-            repeat = str(input("y or n: "))
-            if repeat.lower() == "y":
-                run_quiz_Net(questions)
-            else:
-                quitter()
-        else:
-            print(f"{score}%! You aced it, You really know your stuff!! Would you like to try another Quiz?")
-            other = str(input("y or n: "))
-            if other.lower() == "y":
-                quiz_choice()
-            else:
-                print(f"Have a great day {player1.name_return()}! Please play again soon.")
-
-    print("TIME TO DECLARE THE WINNER!")
     try:
-        if player2 and player1.get_score() > player2.get_score():
-                print("Player 1 WINS!")
-        elif player2 and player1.get_score() == player2.get_score():
-                print("It's a DRAW!")
-        elif player2 and player1.get_score() < player2.get_score():
-                print("Player 2 WINS!")
+       player2
+       print("TIME TO DECLARE THE WINNER!")
+
+       if player2 and player1.get_score() > player2.get_score():
+          print(f"{player1.name_return()} WINS!")
+       elif player2 and player1.get_score() == player2.get_score():
+          print("It's a DRAW!")
+       elif player2 and player1.get_score() < player2.get_score():
+          print(f"{player2.name_return()} WINS!")
+
     except:
-        pass
+       score = correct
+       if(score == 25 or score== 0):
+           print(f"Oh No! {score}%! You did not do so well {player1.name_return()}, Would you like to try again?")
+           repeat = str(input("y or n: "))
+           if repeat.lower() == "y":
+               run_quiz_Net(questions)
+           else:
+               quitter()
+       elif score == 50:
+           print(f"{score}%! Your getting better {player1.name_return()}, Would you like to try again?")
+           repeat = str(input("y or n: "))
+           if repeat.lower() == "y":
+               run_quiz_Net(questions)
+           else:
+               quitter()
+       elif score == 75:
+           print(f"{score}% You passed {player1.name_return()}! But you can do better! Try again?")
+           repeat = str(input("y or n: "))
+           if repeat.lower() == "y":
+               run_quiz_Net(questions)
+           else:
+               quitter()
+       else:
+           print(f"{score}%! You aced it, You really know your stuff!! Would you like to try another Quiz?")
+           other = str(input("y or n: "))
+           if other.lower() == "y":
+               quiz_choice()
+           else:
+               print(f"Have a great day {player1.name_return()}! Please play again soon.")
 
     quitter()
 
 def score_Linux():
 
-    if not player2:  
-        score = correct
-        if(score == 25 or score== 0):
-           print(f"Oh No! {score}% You did not do so well {player1.name_return()}, Would you like to try again?")
-           repeat = str(input("y or n: "))
-           if repeat.lower() == "y":
-               run_quiz_Linux(questions)
-           else:
-               quitter()
-        elif score == 50:
-           print(f"{score}%! Your getting better {player1.name_return()}, Would you like to try again?")
-           repeat = str(input("y or n: "))
-           if repeat.lower() == "y":
-               run_quiz_Linux(questions)
-           else:
-               quitter()
-        elif score == 75:
-           print(f"{score}% You passed {player1.name_return()}! But you can do better! Try again?")
-           repeat = str(input("y or n: "))
-           if repeat.lower() == "y":
-               run_quiz_Linux(questions)
-           else:
-                quitter()
-        else:
-           print(f"{score}%! You aced it, You really know your stuff! Would you like to try another quiz?")
-           other = str(input("y or n: "))
-           if other.lower() == "y":
-               quiz_choice()
-           else:
-               print(f"Have a great day {player1.name_return()}! Please play again soon.")
-
-           print("TIME TO DECLARE THE WINNER!")
     try:
-      if player2 and player1.get_score() > player2.get_score():
-                  print("Player 1 WINS!")
-      elif player2 and player1.get_score() == player2.get_score():
-                  print("It's a DRAW!")
-      elif player2 and player1.get_score() < player2.get_score():
-                  print("Player 2 WINS!")
+       player2 
+       print("TIME TO DECLARE THE WINNER!")
+
+       if player2 and player1.get_score() > player2.get_score():
+          print(f"{player1.name_return()} WINS!")
+       elif player2 and player1.get_score() == player2.get_score():
+          print("It's a DRAW!")
+       elif player2 and player1.get_score() < player2.get_score():
+          print(f"{player2.name_return()} WINS!")
+          
     except:
-        pass
+       score = correct
+       if(score == 25 or score== 0):
+          print(f"Oh No! {score}% You did not do so well {player1.name_return()}, Would you like to try again?")
+          repeat = str(input("y or n: "))
+          if repeat.lower() == "y":
+              run_quiz_Linux(questions)
+          else:
+              quitter()
+       elif score == 50:
+          print(f"{score}%! Your getting better {player1.name_return()}, Would you like to try again?")
+          repeat = str(input("y or n: "))
+          if repeat.lower() == "y":
+              run_quiz_Linux(questions)
+          else:
+              quitter()
+       elif score == 75:
+          print(f"{score}% You passed {player1.name_return()}! But you can do better! Try again?")
+          repeat = str(input("y or n: "))
+          if repeat.lower() == "y":
+              run_quiz_Linux(questions)
+          else:
+               quitter()
+       else:
+          print(f"{score}%! You aced it, You really know your stuff! Would you like to try another quiz?")
+          other = str(input("y or n: "))
+          if other.lower() == "y":
+              quiz_choice()
+          else:
+              print(f"Have a great day {player1.name_return()}! Please play again soon.")
 
     quitter()
 
 def score_Python():
     
-    if not player2:
-        score = correct
-        if(score == 25 or score== 0):
-           print(f"Oh No! {score}% You did not do so well {player1.name_return()}, Would you like to try again?")
-           repeat = str(input("y or n: "))
-           if repeat.lower() == "y":
-               run_quiz_Python(questions)
-           else:
-               quitter()
-        elif score == 50:
-           print(f"{score}%! Your getting better {player1.name_return()}, Would you like to try again?")
-           repeat = str(input("y or n: "))
-           if repeat.lower() == "y":
-               run_quiz_Python(questions)
-           else:
-               quitter()
-        elif score == 75:
-           print(f"{score}% You passed {player1.name_return()}! But you can do better! Try again?")
-           repeat = str(input("y or n: "))
-           if repeat.lower() == "y":
-               run_quiz_Python(questions)
-           else:
-                quitter()
-        else:
-           print(f"{score}%! You aced it, You really know your stuff! Would you like to try another quiz?")
-           other = str(input("y or n: "))
-           if other.lower() == "y":
-               quiz_choice()
-           else:
-               print(f"Have a great day {player1.name_return()}! Please play again soon.")
- 
-           print("TIME TO DECLARE THE WINNER!")
     try:
-      if player2 and player1.get_score() > player2.get_score():
-                  print("Player 1 WINS!")
-      elif player2 and player1.get_score() == player2.get_score():
-                  print("It's a DRAW!")
-      elif player2 and player1.get_score() < player2.get_score():
-                  print("Player 2 WINS!")
+       player2
+       print("TIME TO DECLARE THE WINNER!")
+
+       if player2 and player1.get_score() > player2.get_score():
+          print(f"{player1.name_return()} WINS!")
+       elif player2 and player1.get_score() == player2.get_score():
+          print("It's a DRAW!")
+       elif player2 and player1.get_score() < player2.get_score():
+          print(f"{player2.name_return()} WINS!")
+
     except:
-        pass
+       score = correct
+       if(score == 25 or score== 0):
+          print(f"Oh No! {score}% You did not do so well {player1.name_return()}, Would you like to try again?")
+          repeat = str(input("y or n: "))
+          if repeat.lower() == "y":
+              run_quiz_Python(questions)
+          else:
+              quitter()
+       elif score == 50:
+          print(f"{score}%! Your getting better {player1.name_return()}, Would you like to try again?")
+          repeat = str(input("y or n: "))
+          if repeat.lower() == "y":
+              run_quiz_Python(questions)
+          else:
+              quitter()
+       elif score == 75:
+          print(f"{score}% You passed {player1.name_return()}! But you can do better! Try again?")
+          repeat = str(input("y or n: "))
+          if repeat.lower() == "y":
+              run_quiz_Python(questions)
+          else:
+               quitter()
+       else:
+          print(f"{score}%! You aced it, You really know your stuff! Would you like to try another quiz?")
+          other = str(input("y or n: "))
+          if other.lower() == "y":
+              quiz_choice()
+          else:
+              print(f"Have a great day {player1.name_return()}! Please play again soon.")
 
     quitter()
 
 def score_AWS():
     
-    if not player2:
-        score = correct
-        if(score == 25 or score== 0):
-           print(f"Oh No! {score}% You did not do so well {player1.name_return()}, Would you like to try again?")
-           repeat = str(input("y or n: "))
-           if repeat.lower() == "y":
-               run_quiz_Python(questions)
-           else:
-               quitter()
-        elif score == 50:
-           print(f"{score}%! Your getting better {player1.name_return()}, Would you like to try again?")
-           repeat = str(input("y or n: "))
-           if repeat.lower() == "y":
-               run_quiz_Python(questions)
-           else:
-               quitter()
-        elif score == 75:
-           print(f"{score}% You passed {player1.name_return()}! But you can do better! Try again?")
-           repeat = str(input("y or n: "))
-           if repeat.lower() == "y":
-               run_quiz_Python(questions)
-           else:
-                quitter()
-        else:
-           print(f"{score}%! You aced it, You really know your stuff! Would you like to try another quiz?")
-           other = str(input("y or n: "))
-           if other.lower() == "y":
-               quiz_choice()
-           else:
-               print(f"Have a great day {player1.name_return()}! Please play again soon.")
-
-           print("TIME TO DECLARE THE WINNER!")
     try:
-      if player2 and player1.get_score() > player2.get_score():
-                  print("Player 1 WINS!")
-      elif player2 and player1.get_score() == player2.get_score():
-                  print("It's a DRAW!")
-      elif player2 and player1.get_score() < player2.get_score():
-                  print("Player 2 WINS!")
+       player2
+       print("TIME TO DECLARE THE WINNER!")
+
+       if player2 and player1.get_score() > player2.get_score():
+          print(f"{player1.name_return()} WINS!")
+       elif player2 and player1.get_score() == player2.get_score():
+          print("It's a DRAW!")
+       elif player2 and player1.get_score() < player2.get_score():
+          print(f"{player2.name_return()} WINS!")
+    
     except:
-        pass
+       score = correct
+       if(score == 25 or score== 0):
+          print(f"Oh No! {score}% You did not do so well {player1.name_return()}, Would you like to try again?")
+          repeat = str(input("y or n: "))
+          if repeat.lower() == "y":
+              run_quiz_Python(questions)
+          else:
+              quitter()
+       elif score == 50:
+          print(f"{score}%! Your getting better {player1.name_return()}, Would you like to try again?")
+          repeat = str(input("y or n: "))
+          if repeat.lower() == "y":
+              run_quiz_Python(questions)
+          else:
+              quitter()
+       elif score == 75:
+          print(f"{score}% You passed {player1.name_return()}! But you can do better! Try again?")
+          repeat = str(input("y or n: "))
+          if repeat.lower() == "y":
+              run_quiz_Python(questions)
+          else:
+               quitter()
+       else:
+          print(f"{score}%! You aced it, You really know your stuff! Would you like to try another quiz?")
+          other = str(input("y or n: "))
+          if other.lower() == "y":
+              quiz_choice()
+          else:
+              print(f"Have a great day {player1.name_return()}! Please play again soon.")
 
     quitter()
 
@@ -424,13 +426,20 @@ def quitter():                                    #defines the parameters on how
     try:
        player2
        print(f"{player1.name_return()} and {player2.name_return()}, I can't believe you are quitting!")
-       print(f"Goodbye and hope you enjoyed your learning experience {player1.name_return()}} and {player2.name_return()}!\nUnless, You would like to try your hand at another quiz!")
+       print(f"Goodbye and hope you enjoyed your learning experience {player1.name_return()} and {player2.name_return()}!\nUnless, You would like to try your hand at another quiz!")
        other = str(input("y or n: "))
        if other.lower() == "y":
           quiz_choice()
        else:
            print(f"Have a great day {player1.name_return()} and {player2.name_return()}! Please play again soon.")
-
+    except:
+        print(f"{player1.name_return()}, I can't believe you are quitting!")
+        print(f"Goodbye and hope you enjoyed your learning experience {player1.name_return()}!\nUnless, You would like to try your hand at another quiz!")
+        other = str(input("y or no: "))
+        if other.lower() == "y":
+            quiz_choice()
+        else:
+            print(f"Have a great day {player1.name_return()}! Please play again soon.") 
 
 intro = "Welcome to the Technology P.L.A.N !"
 print(intro.upper())
