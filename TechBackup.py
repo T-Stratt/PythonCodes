@@ -253,7 +253,7 @@ def score_Net():                                #defines the scoring metrics for
        quitter()
 
     except:
-       score = correct 
+        
        if player1.get_score() <= 25:
            print(f"Oh No! {player1.get_score()}%! You did not do so well {player1.name_return()}, Would you like to try again?")
            repeat = str(input("y or n: "))
@@ -301,7 +301,7 @@ def score_Linux():
        quitter()
 
     except:
-       score = correct 
+        
        if player1.get_score() <=25:
           print(f"Oh No! {player1.get_score()}% You did not do so well {player1.name_return()}, Would you like to try again?")
           repeat = str(input("y or n: "))
@@ -348,7 +348,7 @@ def score_Python():
        
        quitter()
     except:
-       score = correct
+       
        if player1.get_score() <= 25:
           print(f"Oh No! {player1.get_score()}% You did not do so well {player1.name_return()}, Would you like to try again?")
           repeat = str(input("y or n: "))
@@ -395,7 +395,7 @@ def score_AWS():
 
        quitter()   
     except:
-       score = correct 
+     
        if player1.get_score() <= 25:
           print(f"Oh No! {player1.get_score()}% You did not do so well {player1.name_return()}, Would you like to try again?")
           repeat = str(input("y or n: "))
