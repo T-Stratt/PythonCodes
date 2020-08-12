@@ -4,9 +4,8 @@
 
 import random
 
-class Player:
-    def __init__(self):
-        self.score= 0
+class Player:                                #this class defines the player and implements the scoring system seen throughout the code
+    def __init__(self):                                                                                                                               self.score= 0
     def win(self):
         self.score += 25
     def get_score(self):
@@ -21,7 +20,7 @@ class Question:                                            #this is a Class. all
         self.prompt = prompt                               #defines this variable       #prompt refers to first ?variable? in a list(0),
         self.answer = answer                               #    "                       #answer refers to second ?variable? in a list(2))
 
-def run_quiz_Net(questions):                               #runs the quiz that is turned on.
+def run_quiz_Net(questions):                               #runs the quiz that is turned on and if 2 players will run the appropriate output.
     
     player1.score = 0
     for question in questions:
@@ -316,7 +315,7 @@ def score_Linux():
               run_quiz_Linux(questions)
           else:
               quitter()
-       elif player1.get_score <= 75:
+       elif player1.get_score() <= 75:
           print(f"{player1.get_score()}% You passed {player1.name_return()}! But you can do better! Try again?")
           repeat = str(input("y or n: "))
           if repeat.lower() == "y":
